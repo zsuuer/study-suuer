@@ -2,12 +2,12 @@
 #include<stdlib.h> 
 #define maxsize 7
 static int lb_lenth=0;
-typedef struct lnode	//¶¨ÒåÁ´±íµÄ½Úµã 
+typedef struct lnode	//å®šä¹‰é“¾è¡¨çš„èŠ‚ç‚¹ 
 {
 	 char data;
 	 struct lnode *next;
 }lb;
-void insert_lb(lb *root,char data)	//ÊµÏÖÁ´±í½ÚµãµÄ²åÈë 
+void insert_lb(lb *root,char data)	//å®žçŽ°é“¾è¡¨èŠ‚ç‚¹çš„æ’å…¥ 
 {
 	lb *temp,*temp1;
 	temp=(lb*)malloc(sizeof(lb));
@@ -32,7 +32,7 @@ void insert_lb(lb *root,char data)	//ÊµÏÖÁ´±í½ÚµãµÄ²åÈë
 		
 	}
 }
-void display_lb(lb *root) //´òÓ¡Á´±í£¬´ÓÁ´±íµÄÍ·¿ªÊ¼µ½Á´Î² 
+void display_lb(lb *root) //æ‰“å°é“¾è¡¨ï¼Œä»Žé“¾è¡¨çš„å¤´å¼€å§‹åˆ°é“¾å°¾ 
 {
 	int i;
 	lb *temp=root;
@@ -42,7 +42,7 @@ void display_lb(lb *root) //´òÓ¡Á´±í£¬´ÓÁ´±íµÄÍ·¿ªÊ¼µ½Á´Î²
 		temp=temp->next;
 	}
 }
-char search_num(lb *root,int i)	//¸ù¾ÝiµÄÖµ·µ»ØÏàÓ¦Á´±í1µÄÊýÖµ 
+char search_num(lb *root,int i)	//æ ¹æ®içš„å€¼è¿”å›žç›¸åº”é“¾è¡¨1çš„æ•°å€¼ 
 {
 	char return_char;
 	int j;
@@ -61,7 +61,7 @@ char search_num(lb *root,int i)	//¸ù¾ÝiµÄÖµ·µ»ØÏàÓ¦Á´±í1µÄÊýÖµ
 		return temp->data;
 	}		
 }
-void change(lb *root,lb *root1,int i)	//½«Á´±í1µÄ½áµãÄæÏò¸³¸øÁ´±í2£¬Éú³ÉÐÂµÄÁ´±í£» 
+void change(lb *root,lb *root1,int i)	//å°†é“¾è¡¨1çš„ç»“ç‚¹é€†å‘èµ‹ç»™é“¾è¡¨2ï¼Œç”Ÿæˆæ–°çš„é“¾è¡¨ï¼› 
 {
 	int j;
 	lb *temp=root;
@@ -87,14 +87,14 @@ void change(lb *root,lb *root1,int i)	//½«Á´±í1µÄ½áµãÄæÏò¸³¸øÁ´±í2£¬Éú³ÉÐÂµÄÁ´±í
 			}
 	}
 }
-int main()		//Ö÷º¯Êý 
+int main()		//ä¸»å‡½æ•°  
 {
 	int max_i;
 	void insert_lb(lb *root,char data);
 	void display_lb(lb *root); 
 	void change(lb *root,lb *root1,int i);
 	char search_num(lb *root,int i);
-	lb *root;	//¶¨ÒåÁ½¸öÁ´±í£¬Á´±í1ºÍÁ´±í2 
+	lb *root;	//å®šä¹‰ä¸¤ä¸ªé“¾è¡¨ï¼Œé“¾è¡¨1å’Œé“¾è¡¨2 
 	lb *root1;
 	root1=(lb*)malloc(sizeof(lb));
 	root=(lb*)malloc(sizeof(lb));
@@ -102,7 +102,7 @@ int main()		//Ö÷º¯Êý
 	root->next=NULL;
 	int i=1;
 	char input_num;
-	while(i<=maxsize)	//¶ÔÁ´±í1½øÐÐ³õÊ¼»¯ 
+	while(i<=maxsize)	//å¯¹é“¾è¡¨1è¿›è¡Œåˆå§‹åŒ– 
 	{
 		printf("please input insert char ;");
 		scanf("%c",&input_num);
