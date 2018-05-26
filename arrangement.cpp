@@ -29,7 +29,7 @@ int f1(long int h,int *s)
 			return 0;
 		}
 		
-		
+		 
 		
 		
 	}
