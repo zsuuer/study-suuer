@@ -87,7 +87,7 @@ void change(lb *root,lb *root1,int i)	//将链表1的结点逆向赋给链表2�
 			}
 	}
 }
-int main()		//主函数 
+int main()		//主函数  
 {
 	int max_i;
 	void insert_lb(lb *root,char data);
