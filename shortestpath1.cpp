@@ -11,7 +11,7 @@ int main()
 	void dijkstra(int a[graphnum][graphnum],int *d,int *t,int p[graphnum][graphnum]);
 
 	printf("input arch ifo\n");
-	while(flag)		//³õÊ¼»¯arcs¾ØÕó£¬¼´ÎŞÏòÍ¼µÄÁÚ½Ó¾ØÕó 
+	while(flag)		//åˆå§‹åŒ–arcsçŸ©é˜µï¼Œå³æ— å‘å›¾çš„é‚»æ¥çŸ©é˜µ 
 	{
 		scanf("%d%d%d",&i,&j,&num);
 		if(i<0||i>=graphnum||j<0||j>=graphnum||num<0)
@@ -27,7 +27,7 @@ int main()
 		} 
 		
 	}	
-	for (i=0;i<graphnum;i++)	//´òÓ¡arcs¾ØÕó 
+	for (i=0;i<graphnum;i++)	//æ‰“å°arcsçŸ©é˜µ 
 	{
 		
 			for(j=0;j<graphnum;j++) 
@@ -41,12 +41,12 @@ int main()
 				
 	}
 	printf("input source v, value must from 0 to %d \n",graphnum-1);
-	for(v_start=0;v_start<graphnum;v_start++)	// ±éÀúÍ¼ÖĞµÄÃ¿¸ö½Úµã£¬Çó³öÄ³¸ö½Úµãµ½ÆäËû½ÚµãµÄ×î¶ÌÂ·¾¶ºÍ¾­¹ıµÄµã 
+	for(v_start=0;v_start<graphnum;v_start++)	// éå†å›¾ä¸­çš„æ¯ä¸ªèŠ‚ç‚¹ï¼Œæ±‚å‡ºæŸä¸ªèŠ‚ç‚¹åˆ°å…¶ä»–èŠ‚ç‚¹çš„æœ€çŸ­è·¯å¾„å’Œç»è¿‡çš„ç‚¹ 
 	{
 		printf("this is about the v%d\n",v_start);
 		d[v_start]=0;
 		t[v_start]=1;
-		for (i=0;i<graphnum;i++)		//³õÊ¼»¯d¾ØÕó£¬ÓÃÀ´¼Ç×¡×î¶ÌÂ·¾¶µÄ³¤¶È 
+		for (i=0;i<graphnum;i++)		//åˆå§‹åŒ–dçŸ©é˜µï¼Œç”¨æ¥è®°ä½æœ€çŸ­è·¯å¾„çš„é•¿åº¦ 
 		{
 			if(arcs[v_start][i]||i==v_start)		
 			{	
@@ -57,7 +57,7 @@ int main()
 				d[i]=255;
 				
 			}
-			for(j=0;j<graphnum;j++) 	//³õÊ¼»¯pracs¾ØÕóÓÃÀ´¼ÇÂ¼×î¶ÌÂ·¾¶
+			for(j=0;j<graphnum;j++) 	//åˆå§‹åŒ–pracsçŸ©é˜µç”¨æ¥è®°å½•æœ€çŸ­è·¯å¾„
 			{			
 				parcs[i][j]=0;						
 			}
@@ -70,12 +70,12 @@ int main()
 		}
 		dijkstra(arcs,d,t,parcs);
 		printf("this is shortest path length\n");
-		for (i=0;i<graphnum;i++)	//´òÓ¡×î¶ÌÂ·¾¶³¤¶È 
+		for (i=0;i<graphnum;i++)	//æ‰“å°æœ€çŸ­è·¯å¾„é•¿åº¦ 
 		{					
 			printf("this the v%d:%d\t",i,d[i]);				
 		}
 		printf("\nthis is shortest path\n");
-		for (i=0;i<graphnum;i++)		//´òÓ¡vx½Úµãµ½ÆäËû½Úµã×î¶ÌÂ·¾¶¾­¹ıµÄ½Úµã£¬µÚiĞĞjÁĞÎª1´ú±íµ½µÚi¸ö½Úµã×î¶ÌÂ·¾¶ÓĞ¾­¹ıj½Úµã £¬·´Ö®ÔòÃ»ÓĞ 
+		for (i=0;i<graphnum;i++)		//æ‰“å°vxèŠ‚ç‚¹åˆ°å…¶ä»–èŠ‚ç‚¹æœ€çŸ­è·¯å¾„ç»è¿‡çš„èŠ‚ç‚¹ï¼Œç¬¬iè¡Œjåˆ—ä¸º1ä»£è¡¨åˆ°ç¬¬iä¸ªèŠ‚ç‚¹æœ€çŸ­è·¯å¾„æœ‰ç»è¿‡jèŠ‚ç‚¹ ï¼Œåä¹‹åˆ™æ²¡æœ‰ 
 		 
 		{					
 			for(j=0;j<graphnum;j++) 	
@@ -95,7 +95,7 @@ int main()
 	}
 	
 }
-void dijkstra(int a[graphnum][graphnum],int *d,int *t,int p[graphnum][graphnum])//ÀûÓÃdijkstraËã·¨ 
+void dijkstra(int a[graphnum][graphnum],int *d,int *t,int p[graphnum][graphnum])//åˆ©ç”¨dijkstraç®—æ³• 
 {
 	int i,j,k,h;
 	int min=255;
