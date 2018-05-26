@@ -3,7 +3,7 @@
 #define graphnum 6
 int main()
 {
-	int i,j,num,v_start,flag=1;
+	int i,j,num,v_start,flag=1; 
 	int d[graphnum]={0};
 	int t[graphnum]={0};
 	int arcs[graphnum][graphnum]={0};
