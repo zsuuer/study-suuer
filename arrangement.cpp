@@ -88,6 +88,6 @@ f(int m,int n,int *a,int *b)
 			(*b)++;
 			printf("\n");
 		}
-	}
+	} 
 }
 #test
