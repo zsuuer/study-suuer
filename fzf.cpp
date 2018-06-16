@@ -44,25 +44,25 @@ int min1(int x,int y)
 }
 void fzf(int i,int j,int *max,int *min)
 {
-	if(i==j)		//����������� 
+	if(i==j)		//针对奇数数列 
 	{
 		*max=a[i];
 		*min=a[j];
 	}
-	else if(i==j-1)			//���ż������ 
+	else if(i==j-1)			//针对偶数数列 
 	{
 		*max=max1(a[i],a[j]);
 		*min=min1(a[i],a[j]);
 	}
 	else
 	{
-		int mid,fmax1,fmax2,fmin1,fmin2;	//ÿ���Ӻ�����������һ���µĵ�ַ����ַ�ڵݹ�Ĺ���һֱ���䣻 
+		int mid,fmax1,fmax2,fmin1,fmin2;	//每次子函数都创建了一个新的地址，地址在递归的过程一直不变； 
 		mid=(i+j)/2;
 		fzf(i,mid,&fmax1,&fmin1);			 
 		fzf(mid+1,j,&fmax2,&fmin2);
 		*max=max1(fmax1,fmax2);
 		*min=min1(fmin1,fmin2);
 		
-	}
+	} 
 	
 }
