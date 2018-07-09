@@ -58,5 +58,3 @@ void popdz(dz *x)
 	e=*--x->top;
 	printf("delete %d\n",e);
 }
-#only a test
-
