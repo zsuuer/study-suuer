@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
 #define max_num 8
 int dispt[max_num][max_num]={0};
 int disx=0;
@@ -61,26 +62,48 @@ void insert_nd(nd *p,int num)
 	
 	
 } 
-void print_nd(nd *p)
+void print_s(int n)
+{
+	int i;
+	for(i=0;i<n;i++)
+	{
+		printf("\t");
+	}
+}
+void print_nd1(nd *p)
 {
 	if(p==NULL)
 	{
-		disx--; 
+		disx--;
+		return;
+	}
+	disx++;
+	int y=0;
+	print_nd1(p->left);
+	disx++;
+	print_nd1(p->right);
+	while(dispt[disx][y]!=0)
+	{
+		y++;
+	}
+	dispt[disx][y]=p->value;
+	disx--;
+	
+}
+void print_nd(nd *p,int level)
+{
+	if(p==NULL)
+	{
 		return;
 	}
 	else
 	{
-		disx++;
-		int y=0;
-		print_nd(p->left);
-		disx++;
-		print_nd(p->right);
-		while(dispt[disx][y]!=0)
-		{
-			y++;
-		}
-		dispt[disx][y]=p->value;
-		disx--;
+		 
+		print_nd(p->left,level+1);
+		print_s(level);
+		printf("%d\n",p->value);
+		print_nd(p->right,level+1);
+
 	}
 }
 void recyle(nd *p)
@@ -99,16 +122,18 @@ void recyle(nd *p)
 int main()
 {
 	nd *int_root(int root_num);
-	void print_nd(nd *p);
+	void print_nd(nd *p,int level);
+	void print_nd1(nd *p);
 	void recyle(nd *p);	
+	void print_s(int n);
 	void insert_nd(nd *p,int num);
 	int num,i=0;
 	nd *root;
 	int x,y;
+	srand((unsigned int)time(NULL));
 	for(i=0;i<=max_num;i++)
 	{
-		printf("input the %d i time insert num:\n",i);
-		scanf("%d",&num);
+		num=rand()%30;
 		if(i==0)
 		{
 			root=int_root(num);	
@@ -118,7 +143,9 @@ int main()
 			insert_nd(root,num);	
 		}	
 	}
-	print_nd(root);
+	print_nd(root,0);
+	print_nd1(root);
+	dispt[0][1]=0;
 	for(x=0;x<max_num;x++)
 	{
 		for(y=0;y<max_num;y++)
